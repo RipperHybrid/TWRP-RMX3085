@@ -190,7 +190,6 @@ TW_USE_TOOLBOX:= true
 TW_OZIP_DECRYPT_KEY := 0000
 TW_OZIP_DECRYPT_KEY := 0000
 TW_NO_BATT_PERCENT := true
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone0/temp"
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
