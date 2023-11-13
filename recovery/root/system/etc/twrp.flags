@@ -1,8 +1,8 @@
 # mount point    fstype    device                         flags
-/system           emmc    /dev/block/mapper/system       flags=display="System";flashimg=1;backup=1
-/vendor           emmc    /dev/block/mapper/vendor       flags=display="Vendor";flashimg=1;backup=1
-/product          emmc    /dev/block/mapper/product      flags=display="Product";flashimg=1;backup=1
-/odm              emmc    /dev/block/mapper/odm          flags=display="Odm";flashimg=1;backup=1
+/system_root           emmc    /dev/block/mapper/system       flags=display="System";flashimg=1;backup=1
+/vendor_image           emmc    /dev/block/mapper/vendor       flags=display="Vendor";flashimg=1;backup=1
+/product_image          emmc    /dev/block/mapper/product      flags=display="Product";flashimg=1;backup=1
+/odm_image              emmc    /dev/block/mapper/odm          flags=display="Odm";flashimg=1;backup=1
 
 # Flash Partitions
 /boot                        emmc      /dev/block/by-name/boot              flags=display=boot;backup=1;flashimg=1
