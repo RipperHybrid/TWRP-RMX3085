@@ -23,12 +23,10 @@ on:
         description: 'DEVICE_PATH'
         required: true
         default: 'device/realme/RMX3085'
-      COMMON_TREE_URL:
-        description: 'COMMON_TREE_URL (if no common tree, leave blank)'
-        required: false
-      COMMON_PATH:
-        description: 'COMMON_PATH (if no common tree, leave blank)'
-        required: false
+      RUI_VERSION:
+        description: 'REALME_UI_VERSION'
+        required: true
+        default: 'RUI3'
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
@@ -81,19 +79,6 @@ jobs:
         distribution: 'zulu'
         java-version: '8'
 
-    - name: Setup SSH Keys
-      if: ${{ startsWith(github.event.inputs.MANIFEST_URL, 'git@github.com') }}
-      uses: webfactory/ssh-agent@v0.5.4
-      with:
-          ssh-private-key: |
-              ${{ secrets.SSH_PRIVATE_KEY }}
-    - name: Install repo
-      run: |
-        mkdir ~/bin
-        curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-        chmod a+x ~/bin/repo
-        sudo ln -sf ~/bin/repo /usr/bin/repo
-      
     - name: Initialize repo
       run: |
         mkdir workspace
@@ -149,15 +134,18 @@ jobs:
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
+    - name: Modify File Name
+      run: |
+          mv workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/Unofficial TWRP for ${{ github.event.inputs.RUI_VERSION }} - Build ${{ steps.props.outputs.date }}.img
+
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        files: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
-        name: Unofficial TWRP for RUI3 ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
-        tag_name: ${{ github.run_id }}
-        body: |
+       files: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/Unofficial TWRP for ${{ github.event.inputs.RUI_VERSION }} - Build ${{ steps.props.outputs.date }}.img
+       name: Unofficial TWRP for ${{ github.event.inputs.RUI_VERSION }} ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
+       tag_name: ${{ github.run_id }}
+       body: |
           Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
           Device: ${{ github.event.inputs.DEVICE_NAME }}
+          RUI_Version: ${{ github.event.inputs.RUI_VERSION }}
           Target: ${{ github.event.inputs.BUILD_TARGET }}.img
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
