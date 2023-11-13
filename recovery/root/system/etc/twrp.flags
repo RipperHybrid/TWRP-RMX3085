@@ -1,8 +1,8 @@
 # mount point    fstype    device                         flags
-/system_image           emmc    /dev/block/mapper/system       flags=display="System";flashimg=1;backup=1
-/vendor_image           emmc    /dev/block/mapper/vendor       flags=display="Vendor";flashimg=1;backup=1
-/product_image          emmc    /dev/block/mapper/product      flags=display="Product";flashimg=1;backup=1
-/odm_image              emmc    /dev/block/mapper/odm          flags=display="Odm";flashimg=1;backup=1
+/system           emmc    /dev/block/mapper/system       flags=display="System";flashimg=1;backup=1
+/vendor           emmc    /dev/block/mapper/vendor       flags=display="Vendor";flashimg=1;backup=1
+/product          emmc    /dev/block/mapper/product      flags=display="Product";flashimg=1;backup=1
+/odm              emmc    /dev/block/mapper/odm          flags=display="Odm";flashimg=1;backup=1
 
 # Flash Partitions
 /boot                        emmc      /dev/block/by-name/boot              flags=display=boot;backup=1;flashimg=1
@@ -24,7 +24,6 @@
 
 # Standard MediaTek Mounts
 /op2                        ext4        /dev/block/by-name/oplusreserve2 
-/odmdtbo                    emmc        /dev/block/by-name/odmdtbo       
 /otp                        emmc        /dev/block/by-name/otp           
 /proinfo                    emmc        /dev/block/by-name/proinfo
 /bootloader                 emmc        /dev/block/by-name/lk            flags=display=lk;flashimg=1
@@ -39,12 +38,7 @@
 /scp2                       emmc        /dev/block/by-name/scp2
 /sspm_1                     emmc        /dev/block/by-name/sspm_1
 /sspm_2                     emmc        /dev/block/by-name/sspm_2
-/mcupm_1                    emmc        /dev/block/by-name/mcupm_1
-/mcupm_2                    emmc        /dev/block/by-name/mcupm_2
 /md1img                     emmc        /dev/block/by-name/md1img
-/md1dsp                     emmc        /dev/block/by-name/md1dsp
-/md1arm7                    emmc        /dev/block/by-name/md1arm7
-/md3img                     emmc        /dev/block/by-name/md3img
 /cam_vpu1                   emmc        /dev/block/by-name/cam_vpu1
 /cam_vpu2                   emmc        /dev/block/by-name/cam_vpu2
 /cam_vpu3                   emmc        /dev/block/by-name/cam_vpu3
@@ -52,7 +46,6 @@
 /gz2                        emmc        /dev/block/by-name/gz2
 /spmfw                      emmc        /dev/block/by-name/spmfw
 /audio_dsp                  emmc        /dev/block/by-name/audio_dsp
-/pi_img                     emmc        /dev/block/by-name/pi_img
 /boot_para                  emmc        /dev/block/by-name/boot_para
 
 # External Partitions
