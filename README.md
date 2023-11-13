@@ -7,5 +7,27 @@
 |Chipset             |MediaTek MT6785 Helio G95                                     |
 |GPU                 |ARM Mali-G76 MC4                                              |
 |Memory              |4/6GB RAM                                                     |
-|Android Version     |11 to 12 (RUI2 to RUI3)                                               |
+|Android Version     |12 to 13 (RUI3 to RUI4)                                               |
 |Storage             |64/128GB                                                      |
+
+## Working Feature
+- Decryption (Thanks [Howwof](https://t.me/@Howwof))
+- Vibration/Haptic 
+- Flashing .img/zip
+- ADB Sideload
+- Terminal/Console
+- External Storage (SD and OTG)
+
+## Bugs
+- Incorrect Battery Percentage After Decryption.
+
+
+## Device Support Group 
+- Telegram Community: https://t.me/Realme8AOSPGroup
+
+
+## Credits
+- Thanks [Crypton](https://t.me/cd_Crypton)
+- https://github.com/TeamWin
+- https://github.com/minimal-manifest-twrp
+- And to all Contributors in every repositories.
