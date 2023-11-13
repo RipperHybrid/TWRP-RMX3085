@@ -79,6 +79,13 @@ jobs:
         distribution: 'zulu'
         java-version: '8'
 
+    - name: Install repo
+      run: |
+        mkdir ~/bin
+        curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+        chmod a+x ~/bin/repo
+        sudo ln -sf ~/bin/repo /usr/bin/repo
+        
     - name: Initialize repo
       run: |
         mkdir workspace
