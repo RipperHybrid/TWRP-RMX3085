@@ -135,12 +135,12 @@ jobs:
 
     - name: Modify File Name
       run: |
-          mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/twrp_unofficial_RUI3_Build_${{ steps.props.outputs.date }}_${{ github.run_id }}.img
+          mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/TWRP-unofficial-RUI3-Build-${{ steps.props.outputs.date }}-${{ github.run_id }}.img
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-       files: workspace/out/target/product/RMX3085/twrp_unofficial_RUI3_Build_${{ steps.props.outputs.date }}_${{ github.run_id }}.img
+       files: workspace/out/target/product/RMX3085//TWRP-unofficial-RUI3-Build-${{ steps.props.outputs.date }}-${{ github.run_id }}.img
        name: Unofficial TWRP for RUI3 - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
        tag_name: ${{ github.run_id }}
        body: |
