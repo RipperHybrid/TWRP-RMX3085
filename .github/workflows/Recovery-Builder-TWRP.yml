@@ -23,7 +23,7 @@ on:
         description: 'DEVICE_PATH'
         required: true
         default: 'device/realme/RMX3085'
-      RUI_VERSION:
+      REALME_UI_VERSION:
         description: 'REALME_UI_VERSION'
         required: true
         default: 'RUI3'
@@ -135,13 +135,13 @@ jobs:
 
     - name: Modify File Name
       run: |
-          mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/TWRP-unofficial-RUI3-Build-${{ steps.props.outputs.date }}-${{ github.run_id }}.img
+          mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ steps.props.outputs.date }}.img
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-       files: workspace/out/target/product/RMX3085//TWRP-unofficial-RUI3-Build-${{ steps.props.outputs.date }}-${{ github.run_id }}.img
-       name: Unofficial TWRP for RUI3 - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
+       files: workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ steps.props.outputs.date }}.img
+       name: Unofficial TWRP for ${{ github.event.inputs.REALME_UI_VERSION }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
        tag_name: ${{ github.run_id }}
        body: |
           Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
