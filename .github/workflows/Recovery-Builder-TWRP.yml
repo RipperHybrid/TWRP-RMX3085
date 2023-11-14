@@ -135,13 +135,13 @@ jobs:
 
     - name: Modify File Name
       run: |
-          mv workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/Unofficial TWRP for ${{ github.event.inputs.RUI_VERSION }} - Build ${{ steps.props.outputs.date }}.img
+          mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/twrp_unofficial_RUI3_Build_${{ steps.props.outputs.date }}_${{ github.run_id }}.img
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-       files: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/Unofficial TWRP for ${{ github.event.inputs.RUI_VERSION }} - Build ${{ steps.props.outputs.date }}.img
-       name: Unofficial TWRP for ${{ github.event.inputs.RUI_VERSION }} ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
+       files: workspace/out/target/product/RMX3085/twrp_unofficial_RUI3_Build_${{ steps.props.outputs.date }}_${{ github.run_id }}.img
+       name: Unofficial TWRP for RUI3 - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
        tag_name: ${{ github.run_id }}
        body: |
           Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
