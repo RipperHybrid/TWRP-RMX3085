@@ -144,8 +144,8 @@ jobs:
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-       files: workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ steps.props.outputs.date }}.img
-       name: Unofficial TWRP for ${{ github.event.inputs.REALME_UI_VERSION }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
+       files: workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ env.BUILD_DATE }}.img
+       name: Unofficial TWRP for ${{ github.event.inputs.REALME_UI_VERSION }} - Build ${{ env.BUILD_DATE }} / ${{ github.run_id }}
        tag_name: ${{ github.run_id }}
        body: |
           Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
