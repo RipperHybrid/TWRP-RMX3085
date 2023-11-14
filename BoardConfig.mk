@@ -188,8 +188,8 @@ TW_INCLUDE_LOGICAL := my_product my_engineering my_company my_carrier my_region 
 TARGET_USES_MKE2FS := true
 TW_USE_TOOLBOX:= true
 TW_OZIP_DECRYPT_KEY := 0000
-TW_OZIP_DECRYPT_KEY := 0000
 TW_NO_BATT_PERCENT := true
+TW_NO_CPU_TEMP := true
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
