@@ -189,6 +189,7 @@ TARGET_USES_MKE2FS := true
 TW_USE_TOOLBOX:= true
 TW_OZIP_DECRYPT_KEY := 0000
 TW_NO_CPU_TEMP := true
+TW_NO_BATT_PERCENT := true
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
