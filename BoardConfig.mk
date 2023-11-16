@@ -191,6 +191,10 @@ TW_OZIP_DECRYPT_KEY := 0000
 TW_NO_CPU_TEMP := true
 TW_NO_BATT_PERCENT := true
 
+#properties
+TW_OVERRIDE_SYSTEM_PROPS := \
+     "ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
+
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
