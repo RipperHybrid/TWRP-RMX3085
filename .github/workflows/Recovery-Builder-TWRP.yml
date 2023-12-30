@@ -11,10 +11,13 @@ on:
         description: 'MANIFEST_BRANCH'
         required: true
         default: 'twrp-12.1'
-      DEVICE_TREE_URL:
-        description: 'DEVICE_TREE_URL'
-        required: true
-        default: 'https://github.com/RipperHybrid/TWRP-RMX3085'
+      DEVICE_TREE:
+       description: 'Custom Recovery Tree'
+       required: true
+       type: choice
+       options:
+               - 'https://github.com/RipperHybrid/OFOX-RMX3085'
+               - 'https://github.com/AshBorn0119/OFOX-RMX3085'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
@@ -42,7 +45,6 @@ on:
 
 jobs:
   build:
-    if: github.event.repository.owner.id == github.event.sender.id
     runs-on: ubuntu-latest
     permissions:
       contents: write
