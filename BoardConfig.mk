@@ -40,6 +40,9 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_IS_64_BIT := true
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := RMX3085,RMX3085L1,nashc
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MT6785
 TARGET_NO_BOOTLOADER := true
@@ -47,9 +50,6 @@ TARGET_USES_UEFI := true
 
 # Platform
 TARGET_BOARD_PLATFORM := MT6785
-
-# Assert
-TARGET_OTA_ASSERT_DEVICE := RMX3085,RMX3085L1,nashc
 
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
@@ -86,6 +86,9 @@ BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
+# Display Size & Density
+TARGET_SCREEN_HEIGHT  := 2400
+TARGET_SCREEN_WIDTH   := 1080
 
 # Dynamic Partitions
 BOARD_SUPER_PARTITION_SIZE := 10200547328
@@ -143,7 +146,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
-BOARD_ROOT_EXTRA_FOLDERS += metadata my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock my_version 
+BOARD_ROOT_EXTRA_FOLDERS += metadata my_bigball my_carrier my_engineering my_heytap my_manifest my_product my_region my_stock 
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -189,11 +192,14 @@ TARGET_USES_MKE2FS := true
 TW_USE_TOOLBOX:= true
 TW_OZIP_DECRYPT_KEY := 0000
 TW_NO_CPU_TEMP := true
-TW_NO_BATT_PERCENT := true
+TW_USE_LEGACY_BATTERY_SERVICES := true
+TW_EXCLUDE_TWRPAPP := true
+TW_NO_HAPTICS := true
 
 #properties
 TW_OVERRIDE_SYSTEM_PROPS := \
-     "ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
+     "ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name;main.file.flashed"
+
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
