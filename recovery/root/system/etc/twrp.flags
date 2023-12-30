@@ -1,9 +1,3 @@
-# mount point    fstype    device                         flags
-/system_root           emmc    /dev/block/mapper/system       flags=display="System";flashimg=1;backup=1
-/vendor_image           emmc    /dev/block/mapper/vendor       flags=display="Vendor";flashimg=1;backup=1
-/product_image          emmc    /dev/block/mapper/product      flags=display="Product";flashimg=1;backup=1
-/odm_image              emmc    /dev/block/mapper/odm          flags=display="Odm";flashimg=1;backup=1
-
 # Flash Partitions
 /boot                        emmc      /dev/block/by-name/boot              flags=display=boot;backup=1;flashimg=1
 /recovery                    emmc      /dev/block/by-name/recovery          flags=display=recovery;backup=1;flashimg=1
@@ -18,7 +12,7 @@
 /protect_s                   ext4      /dev/block/by-name/protect2          flags=display=protect_s
 /nvdata                      emmc      /dev/block/by-name/nvdata            flags=display=nvdata;backup=1;flashimg=1
 /nvcfg                       ext4      /dev/block/by-name/nvcfg             flags=display=nvcfg
-/nvram                       emmc      /dev/block/by-name/nvram             flags=display=nvram;backup=1;flashimg=1
+/nvram                       ext4      /dev/block/by-name/nvram             flags=display=nvram;backup=1;flashimg=1
 /persist                     emmc      /dev/block/by-name/persist           flags=backup=1;display="Persist";mounttodecrypt
 /persistent                  emmc      /dev/block/by-name/frp               flags=display=persistent
 
@@ -49,5 +43,5 @@
 /boot_para                  emmc        /dev/block/by-name/boot_para
 
 # External Partitions
-/external_sd              auto     /dev/block/mmcblk0p1         /dev/block/mmcblk0   flags=display="Micro SD Card";storage;wipeingui;removable
-/usb_otg                  auto     /dev/block/sdd1              /dev/block/sdd       flags=display="USB OTG";storage;wipeingui;removable
+/external_sd              auto     /dev/block/mmcblk0p1         /dev/block/mmcblk0   flags=display="External Storage";storage;wipeingui;removable
+/usb_otg                  auto     /dev/block/sdd1              /dev/block/sdd       flags=display="OTG";storage;wipeingui;removable
