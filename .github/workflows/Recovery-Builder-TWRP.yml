@@ -26,7 +26,7 @@ on:
       REALME_UI_VERSION:
         description: 'REALME_UI_VERSION'
         required: true
-        default: 'RUI3'
+        default: 'RUI3 & RUI4'
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
