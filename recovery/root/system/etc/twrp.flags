@@ -8,8 +8,8 @@
 
 # Misc Partitions
 /cache                       ext4      /dev/block/by-name/cache             flags=display=cache
-/protect_f                   emmc      /dev/block/by-name/protect1          flags=display=protect1;backup=1;flashimg=1
-/protect_s                   emmc      /dev/block/by-name/protect2          flags=display=protect2;backup=1;flashimg=1
+/protect_f                   emmc      /dev/block/by-name/protect1          flags=display=protect1;backup=1
+/protect_s                   emmc      /dev/block/by-name/protect2          flags=display=protect2;backup=1
 /nvdata                      emmc      /dev/block/by-name/nvdata            flags=display=nvdata;backup=1;flashimg=1
 /nvcfg                       emmc      /dev/block/by-name/nvcfg             flags=display=nvcfg;backup=1
 /nvram                       emmc      /dev/block/by-name/nvram             flags=display=nvram;backup=1;flashimg=1
