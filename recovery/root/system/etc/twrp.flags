@@ -3,25 +3,25 @@
 /recovery                    emmc      /dev/block/by-name/recovery          flags=display=recovery;backup=1;flashimg=1
 /dtbo                        emmc      /dev/block/by-name/dtbo              flags=display=dtbo;backup=1
 /vbmeta                      emmc      /dev/block/by-name/vbmeta            flags=display=vbmeta;backup=1;flashimg=1
-/vbmeta_vendor               emmc      /dev/block/by-name/vbmeta_vendor     flags=display=vbmeta-vendor
-/vbmeta_system               emmc      /dev/block/by-name/vbmeta_system     flags=display=vbmeta-system
+/vbmeta_vendor               emmc      /dev/block/by-name/vbmeta_vendor     flags=display=vbmeta-vendor;backup=1;flashimg=1
+/vbmeta_system               emmc      /dev/block/by-name/vbmeta_system     flags=display=vbmeta-system;backup=1;flashimg=1
 
 # Misc Partitions
-/cache                       ext4      /dev/block/by-name/cache             flags=display=cache
-/protect_f                   emmc      /dev/block/by-name/protect1          flags=display=protect1;backup=1
-/protect_s                   emmc      /dev/block/by-name/protect2          flags=display=protect2;backup=1
+/cache                       ext4      /dev/block/by-name/cache             flags=display=cache;backup=1
+/protect_f                   ext4      /dev/block/by-name/protect1          flags=display=protect_f
+/protect_s                   ext4      /dev/block/by-name/protect2          flags=display=protect_s
 /nvdata                      emmc      /dev/block/by-name/nvdata            flags=display=nvdata;backup=1;flashimg=1
-/nvcfg                       emmc      /dev/block/by-name/nvcfg             flags=display=nvcfg;backup=1
+/nvcfg                       ext4      /dev/block/by-name/nvcfg             flags=display=nvcfg
 /nvram                       emmc      /dev/block/by-name/nvram             flags=display=nvram;backup=1;flashimg=1
 /persist                     emmc      /dev/block/by-name/persist           flags=backup=1;display="Persist";mounttodecrypt
 /persistent                  emmc      /dev/block/by-name/frp               flags=display=persistent
 
 # Standard MediaTek Mounts
-/oplusreserve2              emmc        /dev/block/by-name/oplusreserve2 
+/op2                        ext4        /dev/block/by-name/oplusreserve2 
 /otp                        emmc        /dev/block/by-name/otp           
 /proinfo                    emmc        /dev/block/by-name/proinfo
-/lk                          emmc        /dev/block/by-name/lk            flags=display=lk;flashimg=1
-/lk2                        emmc        /dev/block/by-name/lk2
+/bootloader                 emmc        /dev/block/by-name/lk            flags=display=lk;flashimg=1
+/bootloader2                emmc        /dev/block/by-name/lk2            flags=display=lk2;flashimg=1
 /para                       emmc        /dev/block/by-name/para
 /logo                       emmc        /dev/block/by-name/logo             flags=display=logo;flashimg=1
 /expdb                      emmc        /dev/block/by-name/expdb
