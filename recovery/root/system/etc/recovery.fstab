@@ -22,8 +22,14 @@ odm /odm ext4 ro wait,logical
 
 /dev/block/by-name/cdt_engineering /cdt_engineering emmc defaults defaults
 /dev/block/by-name/vbmeta /vbmeta emmc defaults defaults
-/dev/block/by-name/vbmeta_vendor /vbmeta_vendor emmc defaults
-/dev/block/by-name/vbmeta_system /vbmeta_system emmc defaults
+/dev/block/by-name/vbmeta_vendor /vbmeta_vendor emmc defaults first_stage_mount,nofail,
+/dev/block/by-name/vbmeta_system /vbmeta_system emmc defaults first_stage_mount,nofail,
+
+
+
+
+
+
 /dev/block/by-name/frp /persistent emmc defaults defaults
 /dev/block/by-name/nvram /nvram emmc defaults defaults
 /dev/block/by-name/proinfo /proinfo emmc defaults defaults
