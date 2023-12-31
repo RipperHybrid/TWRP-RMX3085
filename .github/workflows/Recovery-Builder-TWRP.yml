@@ -11,7 +11,7 @@ on:
         description: 'MANIFEST_BRANCH'
         required: true
         default: 'twrp-12.1'
-      DEVICE_TREE:
+      DEVICE_TREE_URL:
        description: 'Custom Recovery Tree'
        required: true
        type: choice
