@@ -141,12 +141,12 @@ jobs:
         
     - name: Modify File Name
       run: |
-          mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ env.BUILD_DATE }}.img
+          mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-       files: workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ env.BUILD_DATE }}.img
+       files: workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
        name: Unofficial TWRP for ${{ github.event.inputs.REALME_UI_VERSION }} - Build ${{ env.BUILD_DATE }} / ${{ github.run_id }}
        tag_name: ${{ github.run_id }}
        body: |
