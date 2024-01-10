@@ -19,7 +19,7 @@
 - External Storage (SD and OTG)
 
 ## Bugs
-- Incorrect Battery Percentage After Decryption.
+- Not Able To Unmount Vendor (Rarely)
 
 
 ## Device Support Group 
