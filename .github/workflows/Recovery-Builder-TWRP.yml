@@ -42,6 +42,13 @@ on:
         description: 'BUILD_TARGET'
         required: true
         default: 'recovery'
+      RELEASE_OR_ARTIFACT:
+        description: 'Choose "release" or "artifact"'
+        required: true
+        type: choice
+        options:
+          - 'release'
+          - 'artifact'
 
 jobs:
   build:
@@ -143,7 +150,8 @@ jobs:
       run: |
           mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
 
-    - name: Upload to Release
+    - name: Upload to Release or Create Artifact
+      if: ${{ github.event.inputs.RELEASE_OR_ARTIFACT == 'release' }}
       uses: softprops/action-gh-release@v1
       with:
        files: workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
@@ -155,3 +163,15 @@ jobs:
           RUI_Version: ${{ github.event.inputs.REALME_UI_VERSION }}
           Target: ${{ github.event.inputs.BUILD_TARGET }}.img
           Status: Tested & Working.
+          **Troubleshooting:**
+          If you encounter any issues during the installation:
+          - Logs: Include detailed logs when reporting problems.
+          - Community Support: Visit our [community forum](https://t.me/Realme8AOSPGroup) for assistance.
+
+    - name: Create Artifact
+      if: ${{ github.event.inputs.RELEASE_OR_ARTIFACT == 'artifact' }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: twrp-artifact
+        path: workspace/out/target/product/RMX3085/TWRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
+        compression-level : 9
