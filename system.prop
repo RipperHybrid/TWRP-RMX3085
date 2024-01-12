@@ -15,4 +15,4 @@ ro.sys.usb.charging.only=yes
 ro.sys.usb.mtp.whql.enable=0
 ro.sys.usb.storage.type=mtp
 # Security
-ota.firmware.restriction=AshBorn
+ota.firmware.restriction=True
