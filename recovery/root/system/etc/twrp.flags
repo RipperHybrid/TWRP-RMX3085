@@ -1,3 +1,9 @@
+#Root Partition
+/system_image           ext4    /dev/block/mapper/system       flags=display="System image";flashimg=1;backup=1
+/vendor_image           ext4    /dev/block/mapper/vendor       flags=display="Vendor image";flashimg=1;backup=1
+/product_image          ext4    /dev/block/mapper/product      flags=display="Product image";flashimg=1;backup=1
+/odm_image              ext4    /dev/block/mapper/odm          flags=display="Odm image";flashimg=1;backup=1
+
 # Flash Partitions
 /boot                        emmc      /dev/block/by-name/boot              flags=display=boot;backup=1;flashimg=1
 /recovery                    emmc      /dev/block/by-name/recovery          flags=display=recovery;backup=1;flashimg=1
