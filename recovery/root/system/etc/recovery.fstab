@@ -1,4 +1,5 @@
 system /system ext4 ro wait,logical
+system_ext /system_ext ext4 ro wait,logical
 vendor /vendor ext4 ro wait,logical
 product /product ext4 ro wait,logical
 odm /odm ext4 ro wait,logical
