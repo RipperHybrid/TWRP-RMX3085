@@ -43,5 +43,5 @@
 /boot_para                  emmc        /dev/block/by-name/boot_para
 
 # External Partitions
-/external_sd              auto     /dev/block/mmcblk0p1         /dev/block/mmcblk0   flags=display="Micro SD Card";storage;wipeingui;removable
-/usb_otg                  auto     /dev/block/sdd1              /dev/block/sdd       flags=display="USB OTG";storage;wipeingui;removable
+/external_sd              vfat     /dev/block/mmcblk0p1         /dev/block/mmcblk0   flags=display="Micro SD Card";storage;wipeingui;removable
+/usb_otg                  vfat     /dev/block/sdd1              /dev/block/sdd       flags=display="USB OTG";storage;wipeingui;removable
