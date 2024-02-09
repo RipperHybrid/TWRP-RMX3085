@@ -19,7 +19,7 @@
 - External Storage (SD and OTG)
 
 ## Bugs
-- Not Able To Unmount Vendor (Rarely)
+- None
 
 
 ## Device Support Group 
