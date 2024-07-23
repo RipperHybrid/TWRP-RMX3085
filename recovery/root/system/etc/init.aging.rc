@@ -7,33 +7,6 @@ service dramaging /system/bin/dramaging
     oneshot
     seclabel u:r:recovery:s0
 
-service bsp_cpu_dvfs /system/bin/sh /system/bin/init.oplus.bsp_cpu_dvfs.sh
-    class core
-    user root
-    group root system
-    stdio_to_kmsg
-    disabled
-    oneshot
-    seclabel u:r:init:s0
-
-service bsp_ddr_vcorefs /system/bin/sh /system/bin/init.oplus.bsp_ddr_vcorefs.sh
-    class core
-    user root
-    group root system log
-    stdio_to_kmsg
-    disabled
-    oneshot
-    seclabel u:r:init:s0
-
-service bsp_gpu_dvfs /system/bin/sh /system/bin/init.oplus.bsp_gpu_dvfs.sh
-    class core
-    user root
-    group root system log
-    stdio_to_kmsg
-    disabled
-    oneshot
-    seclabel u:r:init:s0
-
 service flashaging /system/bin/flashaging
     disabled
     oneshot
@@ -45,14 +18,11 @@ service sbltest /system/bin/sbltestreport
     seclabel u:r:recovery:s0
 
 
-on property:sys.oplus_ftm_mode=998
+on property:sys.oppo_ftm_mode=998
     start servicemanager
-on property:sys.oplus_ftm_mode=998 && property:init.svc.servicemanager=running
+on property:sys.oppo_ftm_mode=998 && property:init.svc.servicemanager=running
     wait /cache/factory/agingtest_ui.log
     start dramaging
-    start bsp_cpu_dvfs
-    start bsp_ddr_vcorefs
-	start bsp_gpu_dvfs
     start flashaging
     start sbltest
 #endif
